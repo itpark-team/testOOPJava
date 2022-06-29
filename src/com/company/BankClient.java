@@ -11,24 +11,8 @@ public class BankClient {
         this.money = money;
     }
 
-    public double getMoney() {
-        return money;
-    }
-
-    public void setMoney(double money) throws Exception {
-        if (money >= 0) {
-            this.money = money;
-        } else {
-            throw new Exception("incorrect money value");
-        }
-    }
-
     public int getCardNumber() {
         return cardNumber;
-    }
-
-    public String getFcs() {
-        return fcs;
     }
 
     public String getAsString() {
