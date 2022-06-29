@@ -1,34 +1,35 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Bank {
-    private BankClient[] bankClients;
+    private ArrayList<BankClient> bankClients;
+    private int lastCardNumber;
 
     public Bank() {
-        this.bankClients = new BankClient[0];
+        bankClients = new ArrayList<>();
+        lastCardNumber = 111111;
     }
 
-    public void addClient(BankClient insertedBankClient) {
-        BankClient[] tempArray = new BankClient[bankClients.length + 1];
+    private void addClientToList(BankClient insertedBankClient) {
+        bankClients.add(insertedBankClient);
+    }
 
-        for (int i = 0; i < bankClients.length; i++) {
-            tempArray[i] = bankClients[i];
-        }
-
-        tempArray[tempArray.length - 1] = insertedBankClient;
-
-        bankClients = tempArray;
+    public void addClient(String fcs) {
+        lastCardNumber++;
+        addClientToList(new BankClient(lastCardNumber, fcs, 0));
     }
 
     public void printClientsToConsole() {
-        for (int i = 0; i < bankClients.length; i++) {
-            System.out.println(bankClients[i].getAsString());
+        for (int i = 0; i < bankClients.size(); i++) {
+            System.out.println(bankClients.get(i).getAsString());
         }
     }
 
     private BankClient findClientByCardNumber(int cardNumber) throws Exception {
-        for (int i = 0; i < bankClients.length; i++) {
-            if (bankClients[i].getCardNumber() == cardNumber) {
-                return bankClients[i];
+        for (int i = 0; i < bankClients.size(); i++) {
+            if (bankClients.get(i).getCardNumber() == cardNumber) {
+                return bankClients.get(i);
             }
         }
         throw new Exception("client with cardNumber " + cardNumber + " not found");
