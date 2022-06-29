@@ -1,4 +1,6 @@
-package com.company.bank;
+package com.company.logic;
+
+import com.company.entity.BankClient;
 
 import java.util.ArrayList;
 

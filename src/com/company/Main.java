@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.bank.Bank;
+import com.company.logic.Bank;
 
 import java.util.Scanner;
 
