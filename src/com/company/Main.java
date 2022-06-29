@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.bank.Bank;
+
 import java.util.Scanner;
 
 public class Main {

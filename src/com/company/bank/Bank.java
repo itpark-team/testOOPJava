@@ -1,4 +1,4 @@
-package com.company;
+package com.company.bank;
 
 import java.util.ArrayList;
 

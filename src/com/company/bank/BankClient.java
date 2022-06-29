@@ -1,4 +1,4 @@
-package com.company;
+package com.company.bank;
 
 public class BankClient {
     private int cardNumber;
