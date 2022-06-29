@@ -35,7 +35,7 @@ public class BankClient {
         return String.format("номер карты = %d; ФИО = %s; денег на счету = %.2f", cardNumber, fcs, money);
     }
 
-    public void sendMoney(BankClient bankClientTo, int moneyTo) throws Exception {
+    public void sendMoney(BankClient bankClientTo, double moneyTo) throws Exception {
         if (moneyTo > money) {
             throw new Exception("incorrect money value. value too much");
         }

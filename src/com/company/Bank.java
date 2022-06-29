@@ -11,19 +11,9 @@ public class Bank {
         lastCardNumber = 111111;
     }
 
+    //region utils methods
     private void addClientToList(BankClient insertedBankClient) {
         bankClients.add(insertedBankClient);
-    }
-
-    public void addClient(String fcs) {
-        lastCardNumber++;
-        addClientToList(new BankClient(lastCardNumber, fcs, 0));
-    }
-
-    public void printClientsToConsole() {
-        for (int i = 0; i < bankClients.size(); i++) {
-            System.out.println(bankClients.get(i).getAsString());
-        }
     }
 
     private BankClient findClientByCardNumber(int cardNumber) throws Exception {
@@ -35,10 +25,28 @@ public class Bank {
         throw new Exception("client with cardNumber " + cardNumber + " not found");
     }
 
-    public void sendMoneyFromClientToClient(int cardNumberFrom, int cardNumberTo, int moneyTo) throws Exception {
+    public void printClientsToConsole() {
+        for (int i = 0; i < bankClients.size(); i++) {
+            System.out.println(bankClients.get(i).getAsString());
+        }
+    }
+    //endregion
+
+    public void addClient(String fcs) {
+        lastCardNumber++;
+        addClientToList(new BankClient(lastCardNumber, fcs, 0));
+    }
+
+    public void sendMoneyFromClientToClient(int cardNumberFrom, int cardNumberTo, double moneyTo) throws Exception {
         BankClient bankClientFrom = findClientByCardNumber(cardNumberFrom);
         BankClient bankClientTo = findClientByCardNumber(cardNumberTo);
 
         bankClientFrom.sendMoney(bankClientTo, moneyTo);
     }
+
+    public void addMoneyToClient(int cardNumber, double money) throws Exception {
+        BankClient bankClient = findClientByCardNumber(cardNumber);
+        bankClient.addMoney(money);
+    }
+
 }
