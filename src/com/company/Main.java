@@ -13,6 +13,5 @@ public class Main {
         bank.sendMoneyFromClientToClient(873456, 456789, 3000);
 
         bank.printClientsToConsole();
-
     }
 }
