@@ -27,10 +27,15 @@ public class Bank {
         throw new Exception("client with cardNumber " + cardNumber + " not found");
     }
 
-    public void printClientsToConsole() {
+    public String getClientsAsString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
         for (int i = 0; i < bankClients.size(); i++) {
-            System.out.println(bankClients.get(i).getAsString());
+            stringBuilder.append(bankClients.get(i).getAsString());
+            stringBuilder.append("\n");
         }
+
+        return stringBuilder.toString();
     }
     //endregion
 

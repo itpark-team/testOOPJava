@@ -65,7 +65,7 @@ public class Main {
         bank.addClient("Петров Пётр Петрович");
 
         while (true) {
-            bank.printClientsToConsole();
+            System.out.println(bank.getClientsAsString());
             System.out.println("-------");
 
             System.out.println("1.Пополнить счёт по номеру карты");
